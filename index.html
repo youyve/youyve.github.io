@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨巷与看板猫</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #e2e2e2;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+        
+        .poem-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        @media screen and (max-width: 768px) {
+            .poem-container {
+                margin: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poem-container">
+        <h1>雨巷</h1>
+        <div class="author">—— 戴望舒</div>
+        <p>
+            撑着油纸伞，独自<br>
+            彷徨在悠长、悠长<br>
+            又寂寥的雨巷，<br>
+            我希望逢着<br>
+            一个丁香一样的<br>
+            结着愁怨的姑娘。<br>
+            她是有<br>
+            丁香一样的颜色，<br>
+            丁香一样的芬芳，<br>
+            丁香一样的忧愁，<br>
+            在雨中哀怨，<br>
+            哀怨又彷徨；<br>
+            她彷徨在这寂寥的雨巷，<br>
+            撑着油纸伞<br>
+            像我一样，<br>
+            像我一样地<br>
+            默默彳亍，<br>
+            寂寥地走着，<br>
+            默默地想着，<br>
+            默默地凝泪，<br>
+            默默地别离。<br>
+            在雨的哀曲里，<br>
+            消散了她的颜色，<br>
+            散作了泥泞中一朵，<br>
+            泥泞中一朵凄迷而白的丁香。<br>
+            那是我逢着的<br>
+            丁香一样的姑娘；<br>
+            在雨中呜咽，<br>
+            呜咽着走过<br>
+            寂寥的雨巷。
+        </p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/gh/cc963020001/myproject@1.0/kmusume/2d-mao/L2Dwidget.min.js"></script>
+    <script type="text/javascript">
+        var config = {
+            model: {
+                jsonPath:
+                    "https://cdn.jsdelivr.net/gh/cc963020001/myproject@1.0/kmusume/2d-mao/hijiki.model.json",
+            },
+            display: {
+                superSample: 1,
+                width: 245,
+                height: 245,
+                position: "right",
+                hOffset: 0,
+                vOffset: 0,
+            },
+            mobile: { show: false, scale: 1, motion: false },
+            react: { opacityDefault: 1, opacityOnHover: 0.75 },
+        };
+        L2Dwidget.init(config);
+    </script>
+</body>
+</html>
