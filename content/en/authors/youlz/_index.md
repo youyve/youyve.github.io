@@ -31,14 +31,14 @@ highlight_name: true
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:lianzhognyou1@gmail.com'
     label: E-mail Me
   - icon: brands/x
     url: https://twitter.com/GetResearchDev
   - icon: brands/instagram
     url: https://www.instagram.com/
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/youyve
   - icon: brands/linkedin
     url: https://www.linkedin.com/
   - icon: academicons/google-scholar
@@ -48,8 +48,11 @@ profiles:
 
 interests:
   - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Quantum Computing
+  - Biotechnology
+  - Domestic Computing(Ascend)
+  - Parallel Computing
+  - CUDA C++ & Ascend C
 
 education:
   # - area: PhD Artificial Intelligence
@@ -183,4 +186,11 @@ awards:
 
 ## About Me
 
-Lianzhong You is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+<!-- Lianzhong You is an engineer of artificial intelligence at the Guangming Laboratory in Shenzhen. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks. -->
+
+<!-- He captained a team to secure a 70,000 yuan prize in the 2022 Ascend AI Innovation Contest National Finals, and won the second prize in the ASC Student Supercomputer Challenge (ASC22).
+Recently, he participated in the Ascend AI Native Innovation Operator Challenge (S2 Season) Operator Performance Challenge Performance Competition, and has been invited to the HUAWEI Connect 2024. -->
+
+Lianzhong You's work includes Domestic Computing(HUAWEI Ascend), AIGC and LLMs. He is now much interested in Quantum Computing and Biotechnology.
+He is now an engineer of artificial intelligence at the Guangming Laboratory in Shenzhen.
+If you have any questions and ideas you'd like to work with him, please feel free to email him!

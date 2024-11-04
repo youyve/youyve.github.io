@@ -7,7 +7,7 @@
     <description>Ollama</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>zh-Hans</language><lastBuildDate>Thu, 13 Jun 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hub4ed118ad59f00f1b8575f405a272c16_360248_512x512_fill_lanczos_center_3.png</url>
+      <url>http://localhost:1313/media/icon_hu7893039901724115987.png</url>
       <title>Ollama</title>
       <link>http://localhost:1313/zh/tags/ollama/</link>
     </image>
@@ -87,7 +87,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --plot_loss true&lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --fp16
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中 template 需要根据需要微调的模型进行变动&lt;/p&gt;
-&lt;p&gt;还可以添加自定义聊天模板到 &lt;a href=&#34;https://github.com/hiyouga/LLaMA-Factory/blob/main/src/llamafactory/data/template.py&#34;&gt;template.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;还可以添加自定义聊天模板到 
+&lt;/p&gt;
 &lt;p&gt;以下是 default 和 llama3 的 template 实例&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# default&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;_register_template&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;
@@ -127,7 +128,8 @@
 &lt;ul&gt;
 &lt;li&gt;一是说原始模型是 32-bit，训练后保存的模型为 16-bit 【来自 llama-factory 微信交流群的解答】&lt;/li&gt;
 &lt;li&gt;二是说 Qwen1.5 原版 1200MB 的权重文件中，将 input embeddings 和 output embeddings 分开保存，但实质上它们的值完全相同，在保存时会只保留一份 embeddings，因此 Qwen1.5-0.5B 在 16-bit 精度实际上的大小是 900MB，32-bit 精度是 1800MB
-在 full 微调时保存 32-bit 精度模型（1800MB），lora 微调时保存 16-bit 精度模型（900MB）【来自 &lt;a href=&#34;https://github.com/hiyouga/LLaMA-Factory/issues/3407#issuecomment-2079075764&#34;&gt;github issue&lt;/a&gt; 中的解答】&lt;/li&gt;
+在 full 微调时保存 32-bit 精度模型（1800MB），lora 微调时保存 16-bit 精度模型（900MB）【来自 
+ 中的解答】&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;ollama-中创建微调模型&#34;&gt;Ollama 中创建微调模型&lt;/h2&gt;
 &lt;p&gt;首先， clone the &lt;code&gt;ollama/ollama&lt;/code&gt; repo：&lt;/p&gt;
@@ -149,14 +151,16 @@
 &lt;p&gt;（可选）量化模型&lt;/p&gt;
 &lt;p&gt;如果觉得转换后的模型文件太大了可以使用一下命令对模型进行量化处理，如果怕有精度损失也可以不用进行这一步&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;llm/llama.cpp/quantize converted.bin quantized.bin q4_0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;converted.bin为上一步转换模型得到的文件，quantized.bin为量化后的文件，q4_0为量化选项表示使用 4bit 量化（官方推荐），当然还有很多的量化选项，具体参见&lt;a href=&#34;https://github.com/ollama/ollama/blob/main/docs/import.md#quantization-reference&#34;&gt;https://github.com/ollama/ollama/blob/main/docs/import.md#quantization-reference&lt;/a&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;converted.bin为上一步转换模型得到的文件，quantized.bin为量化后的文件，q4_0为量化选项表示使用 4bit 量化（官方推荐），当然还有很多的量化选项，具体参见
+&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;编写Modelfile&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;那什么是 Modelfile&lt;/p&gt;
 &lt;p&gt;官方解释是：此文件是模型的蓝图，用于指定权重、参数、提示模板等。This file is the blueprint for your model, specifying weights, parameters, prompt templates and more.&lt;/p&gt;
 &lt;p&gt;官方给了一个简单的模板：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;FROM quantized.bin
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;TEMPLATE &lt;span class=&#34;s2&#34;&gt;&amp;#34;[INST] {{ .Prompt }} [/INST]&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但是官方这个通用模板太简单了，我建议在 ollama 的官网（&lt;a href=&#34;https://ollama.com/library&#34;&gt;https://ollama.com/library&lt;/a&gt;）上找到与微调模型相同系列的模型，然后使用 ollama 将模型下载到本地。使用 ollama show 命令可以查看模型的各种信息，具体可以使用&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但是官方这个通用模板太简单了，我建议在 ollama 的官网（
+）上找到与微调模型相同系列的模型，然后使用 ollama 将模型下载到本地。使用 ollama show 命令可以查看模型的各种信息，具体可以使用&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ollama &lt;span class=&#34;nb&#34;&gt;help&lt;/span&gt; show
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看相关命令的使用帮助&lt;/p&gt;
 &lt;p&gt;以 llama3 为例进行演示，使用&lt;/p&gt;
@@ -185,7 +189,8 @@
 &lt;p&gt;退回convert*.py的版本&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; llama.cpp
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard 46e12c4692a37bdd31a0432fc5153d7d22bc7f72
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/ollama/ollama/issues/4529#issuecomment-2121929243&#34;&gt;https://github.com/ollama/ollama/issues/4529#issuecomment-2121929243&lt;/a&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+&lt;/p&gt;
 &lt;p&gt;然后退回到使用脚本转换模型那一步再来一遍&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;使用一行命令直接导（不一定能成功）&lt;/strong&gt;&lt;/p&gt;
 &lt;aside&gt;
